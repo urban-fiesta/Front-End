@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -12,16 +12,20 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+            No 12
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+          <q-breadcrumbs>
+            <q-breadcrumbs-el
+            :label="this.$route.name" />
+          </q-breadcrumbs>
+
+      <q-btn to="/login" flat round dense icon="account_circle" class="q-mr-xs" />
       </q-toolbar>
     </q-header>
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       bordered
       content-class="bg-grey-1"
     >
@@ -47,6 +51,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import EssentialLink from 'components/EssentialLink'
 
 export default {
@@ -104,6 +109,15 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapState('example', ['location']),
+    nomePaginaAtual () {
+      return this.$route.name
+    }
+  },
+  methods: {
+    ...mapActions('example', ['mudarLocation'])
   }
 }
 </script>
