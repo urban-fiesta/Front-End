@@ -1,17 +1,18 @@
 <template>
   <q-page>
     <div class="row justify-around">
-      <oferas class="col-md-11" />
+      <principais-ofertas class="col-md-11 col-xs-12"/>
     </div>
   </q-page>
 </template>
 
 <script>
-import Oferas from 'components/PrincipaisOfertas/Ofertas'
+import PrincipaisOfertas from 'components/PrincipaisOfertas/PrincipaisOfertas'
+
 export default {
   name: 'PageIndex',
   components: {
-    Oferas
+    PrincipaisOfertas
   }
 }
 </script>
