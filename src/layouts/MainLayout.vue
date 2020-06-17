@@ -106,6 +106,9 @@ export default {
           caption: 'Community Quasar projects',
           icon: 'favorite',
           link: 'https://awesome.quasar.dev'
+        },
+        {
+          title: 'Thiago Augusto Souza Silva Gay'
         }
       ]
     }

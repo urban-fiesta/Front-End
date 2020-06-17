@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md bg-secondary">
+  <div class="q-pa-md">
     <div class="q-gutter-y-md row justify-center">
       <div class="col-md-5 col-xs-10">
         <q-img src="../../assets/img/logo1.png"/>
@@ -31,7 +31,7 @@
           </template>
         </q-input>
       <div class="col-md-10 col-xs-10">
-        <q-btn type="submit" :loading="submitting" label="Entrar" class="q-mt-md" color="primary" rounded>
+        <q-btn to="/dashboard" type="submit" :loading="submitting" label="Entrar" class="q-mt-md" color="primary" rounded>
       </q-btn>
       </div>
       </div>
