@@ -32,11 +32,11 @@
           </div>
           <div class="text-h6 col-md-10">
             <u>Preço</u>:
-          <q-icon name="attach_money" size="28px" />
-          <q-icon name="attach_money" size="28px" />
-          <q-icon name="money_off" size="28px" />
-          <q-icon name="money_off" size="28px" />
-          <q-icon name="money_off" size="28px" />
+            <q-icon name="attach_money" size="28px" />
+            <q-icon name="attach_money" size="28px" />
+            <q-icon name="money_off" size="28px" />
+            <q-icon name="money_off" size="28px" />
+            <q-icon name="money_off" size="28px" />
           </div>
         </div>
       </div>

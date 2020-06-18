@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <div class="q-gutter-y-md row justify-center">
       <div class="col-md-5 col-xs-10">
-        <q-img src="../../assets/img/logo1.png"/>
+        <!-- <q-img src="../../assets/img/logo1.png"/> -->
       </div>
       <div class="col-md-10 col-xs-10">
         <q-input
