@@ -33,6 +33,7 @@
         </q-input>
         <div class="col-md-10 col-xs-10">
           <q-btn
+            to="dashboard/"
             label="Entrar"
             class="q-mt-md"
             color="primary"

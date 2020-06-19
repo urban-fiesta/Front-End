@@ -12,15 +12,21 @@
         />
 
         <q-toolbar-title>
-            No 12
+          No 12
         </q-toolbar-title>
 
-          <q-breadcrumbs>
-            <q-breadcrumbs-el
-            :label="this.$route.name" />
-          </q-breadcrumbs>
+        <q-breadcrumbs>
+          <q-breadcrumbs-el :label="this.$route.name" />
+        </q-breadcrumbs>
 
-      <q-btn to="/login" flat round dense icon="account_circle" class="q-mr-xs" />
+        <q-btn
+          to="/login"
+          flat
+          round
+          dense
+          icon="account_circle"
+          class="q-mr-xs"
+        />
       </q-toolbar>
     </q-header>
 
@@ -106,9 +112,6 @@ export default {
           caption: 'Community Quasar projects',
           icon: 'favorite',
           link: 'https://awesome.quasar.dev'
-        },
-        {
-          title: 'Thiago Augusto Souza Silva Gay'
         }
       ]
     }

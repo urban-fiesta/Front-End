@@ -1,7 +1,7 @@
 <template>
   <div
     class="q-pa-md"
-    style="max-width: 400px"
+    style="max-width: 75%"
   >
     <q-dialog v-model="form">
       <q-card>
@@ -16,17 +16,34 @@
         >
           <q-input
             filled
-            v-model="name"
+            v-model="dadosCadastrais.name"
             label="Insira seu nome *"
             hint="Nome completo"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Por favor insira seu nome']"
           />
-
+          <q-input
+            filled
+            v-model="dadosCadastrais.email"
+            type="email"
+            label="Insira seu email *"
+            hint="Email"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Por favor insira seu email']"
+          />
+          <q-input
+            filled
+            v-model="dadosCadastrais.senha"
+            type="password"
+            label="Insira uma senha *"
+            hint="Senha"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Por favor insira uma senha']"
+          />
           <q-input
             filled
             type="number"
-            v-model="age"
+            v-model="dadosCadastrais.age"
             label="Insira sua idade *"
             lazy-rules
             :rules="[
@@ -42,12 +59,12 @@
 
           <div>
             <q-btn
-              label="Submit"
+              label="Cadastrar"
               type="submit"
               color="primary"
             />
             <q-btn
-              label="Reset"
+              label="Começar novamente"
               type="reset"
               color="primary"
               flat
@@ -64,10 +81,16 @@
 export default {
   data () {
     return {
-      form: false,
-      name: null,
-      age: null,
 
+      form: false,
+      dadosCadastrais: {
+
+        name: null,
+        email: null,
+        senha: null,
+        age: null
+
+      },
       accept: false
     }
   },
@@ -75,7 +98,6 @@ export default {
   methods: {
     onSubmit () {
       if (this.accept !== true) {
-        // alert('Você precisa aceitar os termos de uso')
         this.error()
       } else {
         this.submit()
@@ -103,8 +125,10 @@ export default {
     },
 
     onReset () {
-      this.name = null
-      this.age = null
+      this.dadosCadastrais.name = null
+      this.dadosCadastrais.age = null
+      this.dadosCadastrais.email = null
+      this.dadosCadastrais.senha = null
       this.accept = false
     }
   }
