@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="row q-py-md justify-Left">
-      <div class="text-h5">
+      <div class="text-h5" style="color: white;">
         Roteiro
       </div>
     </div>

@@ -5,7 +5,7 @@
     <roteiro class="col-md-11 col-xs-12" />
     <div class="row col-md-11 justify-between">
     <div class="row col-md-11 q-py-md justify-Left">
-      <div class="text-h5">
+      <div class="text-h5" style="color: white;">
         Menu
       </div>
     </div>
