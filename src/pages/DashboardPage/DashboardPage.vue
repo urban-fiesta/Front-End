@@ -1,22 +1,21 @@
 <template>
   <q-page>
-    <div class="row justify-center q-pa-md">
-      <div  class="col-md-12">
-        <q-card class="bg-grey-6" bordered>
-          <eventos />
-        </q-card>
-      </div>
-    </div>
+    <q-card class="row bg-primary justify-center">
+      <eventos-ativos class="col-md-12"/>
+      <eventos-passados class="col-md-12"/>
+    </q-card>
   </q-page>
 </template>
 
 <script>
-import Eventos from 'components/Eventos/Eventos'
+import EventosAtivos from 'components/Eventos/EventosAtivos'
+import EventosPassados from 'components/Eventos/EventosPassados'
 
 export default {
   name: 'DashboardPage',
   components: {
-    Eventos
+    EventosAtivos,
+    EventosPassados
   },
   data () {
     return {

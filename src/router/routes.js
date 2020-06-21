@@ -8,7 +8,7 @@ const routes = [
       { path: '/evento', component: () => import('pages/TicketPage/TicketPage.vue'), name: 'Evento' },
       { path: '/login', component: () => import('pages/loginPage/login.vue'), name: 'Login' },
       { path: '/dashboard', component: () => import('pages/DashboardPage/DashboardPage.vue'), name: 'Dashboard' },
-      { path: '/cadastro', component: () => import('pages/CadastroEvento/CadastroEvento.vue'), name: 'Cadastro de evento' }
+      { path: '/cadastro', component: () => import('pages/CadastroEvento/CadastroEventoPage.vue'), name: 'Cadastro de evento' }
     ]
   }
 ]
