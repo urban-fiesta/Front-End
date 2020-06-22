@@ -18,13 +18,14 @@
       />
       <q-input
         filled
-        type="date"
         v-model="dadosEvento.date"
         hint="Insira a data do evento"
+        type="date"
         lazy-rules
         :rules="[
         val => val !== null && val !== '' || 'Por favor insira a data do evento']"
       />
+      {{dadosEvento.date}}
       <q-input
         filled
         v-model="dadosEvento.local"
@@ -40,6 +41,9 @@
         lazy-rules
         :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
       />
+      {{dadosEvento.start}}
+      <br>
+      {{formatedStart}}
       <q-input
         filled
         v-model="dadosEvento.finish"
@@ -48,10 +52,10 @@
         lazy-rules
         :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
       />
+      {{dadosEvento.finish}}
       <q-input
         filled
         v-model="dadosEvento.price"
-        type="number"
         prefix="R$"
         hint="Insira o preço do ingresso"
         lazy-rules
@@ -120,20 +124,21 @@ export default {
 
       form: false,
       dadosEvento: {
-        name: null,
+        name: 'evento daora',
         date: null,
-        local: null,
+        local: 'Aqui',
         start: null,
         finish: null,
-        price: null,
-        description: null,
-        age_limit: null,
+        price: 0,
+        description: 'evento daora mesmo',
+        age_limit: 12,
         tag_list: 'opa',
         event_photo: 'photo.png'
 
       },
       accept: false,
-      data: {}
+      data: {},
+      formatedStart: date.formatDate(Date.now(), 'YYYY-MM-DDTHH:mm:ss')
     }
   },
 
@@ -150,9 +155,11 @@ export default {
         const _dadosAbertos = {
           ...this.dadosEvento,
           date: date.formatDate(this.dadosEvento.date, 'YYYY-MM-DD'),
-          start: date.formatDate(this.dadosEvento.start, 'YYYY-MM-DDTHH:mm:ss.SSSZ'),
-          finish: date.formatDate(this.dadosEvento.finish, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+          start: date.extractDate(this.dadosEvento.start, 'HH:mm'),
+          finish: date.extractDate(this.dadosEvento.finish, 'HH:mm'),
+          price: parseFloat(this.dadosEvento.price)
         }
+        console.log(_dadosAbertos.finish)
         this.data = await CadastroEventoService.create(_dadosAbertos)
         console.log('ó: => ' + JSON.stringify(_dadosAbertos))
         this.$q.notify({
