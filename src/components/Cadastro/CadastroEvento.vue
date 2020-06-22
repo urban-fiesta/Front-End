@@ -112,6 +112,7 @@
 
 <script>
 import CadastroEventoService from '../../services/CadastroEventoService/CadastroEventoService'
+import { date } from 'quasar'
 
 export default {
   data () {
@@ -119,7 +120,6 @@ export default {
 
       form: false,
       dadosEvento: {
-        id: 2,
         name: null,
         date: null,
         local: null,
@@ -128,7 +128,7 @@ export default {
         price: null,
         description: null,
         age_limit: null,
-        tag_list: ['opa'],
+        tag_list: 'opa',
         event_photo: 'photo.png'
 
       },
@@ -147,8 +147,14 @@ export default {
     },
     async submit () {
       try {
-        this.data = await CadastroEventoService.createNoId(this.dadosEvento, this.dadosEvento.id)
-        console.log('ó: => ' + this.dadosEvento)
+        const _dadosAbertos = {
+          ...this.dadosEvento,
+          date: date.formatDate(this.dadosEvento.date, 'YYYY-MM-DD'),
+          start: date.formatDate(this.dadosEvento.start, 'YYYY-MM-DDTHH:mm:ss.SSSZ'),
+          finish: date.formatDate(this.dadosEvento.finish, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+        }
+        this.data = await CadastroEventoService.create(_dadosAbertos)
+        console.log('ó: => ' + JSON.stringify(_dadosAbertos))
         this.$q.notify({
           message: 'Cadastro efetuado com sucesso!',
           color: 'green-4',
