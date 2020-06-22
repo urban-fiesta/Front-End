@@ -2,7 +2,7 @@ import Base from '../base'
 
 class CadastroEventoService extends Base {
   constructor () {
-    super('/events')
+    super('/Events')
   }
 }
 

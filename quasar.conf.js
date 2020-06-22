@@ -70,7 +70,7 @@ module.exports = function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       env: ctx.dev
         ? {
-          API: JSON.stringify('http://127.0.0.1:3030/api')
+          API: JSON.stringify('http://localhost:5000')
         }
         : {
         },

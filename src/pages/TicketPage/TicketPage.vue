@@ -3,14 +3,22 @@
   <div class="row justify-around">
     <presentation class="col-md-11 col-xs-12" />
     <roteiro class="col-md-11 col-xs-12" />
-    <div class="row col-md-11 justify-between">
-    <div class="row col-md-11 q-py-md justify-Left">
-      <div class="text-h5" style="color: white;">
-        Menu
+    <div class="row col-md-11">
+      <div class="row col-md-5 q-py-md justify-Left">
+        <div class="text-h5" style="color: white;">
+          Menu
+        </div>
       </div>
-    </div>
-      <Menu class="col-md-5 col-xs-12" />
-      <Menu class="col-md-5 col-xs-12" />
+        <q-list class="row justify-between">
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" />
+        </q-list>
     </div>
   </div>
 </q-page>

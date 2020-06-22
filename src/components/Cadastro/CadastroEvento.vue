@@ -145,19 +145,18 @@ export default {
         this.submit()
       }
     },
-
     async submit () {
       try {
-        this.data = await CadastroEventoService.create(this.dadosEvento)
-        console.log('ó: ' + this.data)
+        this.data = await CadastroEventoService.createNoId(this.dadosEvento, this.dadosEvento.id)
+        console.log('ó: => ' + this.dadosEvento)
+        this.$q.notify({
+          message: 'Cadastro efetuado com sucesso!',
+          color: 'green-4',
+          icon: 'check'
+        })
       } catch (error) {
         console.log(error)
       }
-      this.$q.notify({
-        message: 'Cadastro efetuado com sucesso!',
-        color: 'green-4',
-        icon: 'check'
-      })
     },
 
     error () {
