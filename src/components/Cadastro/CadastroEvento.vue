@@ -150,8 +150,8 @@ export default {
         const _dadosAbertos = {
           ...this.dadosEvento,
           date: date.formatDate(this.dadosEvento.date, 'YYYY-MM-DD'),
-          start: date.formatDate(this.dadosEvento.start, 'YYYY-MM-DDTHH:mm:ss.SSSZ'),
-          finish: date.formatDate(this.dadosEvento.finish, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+          start: date.formatDate(this.dadosEvento.date, 'YYYY-MM-DDTHH:mm:ss.SSSZ'),
+          finish: date.formatDate(this.dadosEvento.date, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
         }
         this.data = await CadastroEventoService.create(_dadosAbertos)
         console.log('ó: => ' + JSON.stringify(_dadosAbertos))
