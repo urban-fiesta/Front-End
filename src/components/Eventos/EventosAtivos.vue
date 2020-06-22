@@ -3,10 +3,9 @@
     <q-table
       dark
       bordered
-      hide-header
       :columns="columns"
       :filter="filter"
-      :data="data"
+      :data="data.data"
       title="Eventos Cadastrados"
       row-key="name"
       color="primary"
@@ -23,9 +22,6 @@
 
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td auto-width>
-            <q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
-          </q-td>
           <q-td
             v-for="col in props.cols"
             :key="col.name"
@@ -37,15 +33,22 @@
         <q-tr v-show="props.expand" :props="props">
           <q-td colspan="100%">
             <div class="text-left">This is expand slot for row above: {{ props.row.name }}.</div>
-            <q-btn color="primary">Desativar evento</q-btn>
           </q-td>
         </q-tr>
+      </template>
+
+      <template v-slot:body-cell-acoes="props">
+        <q-td auto-width :props="props" key="acoes">
+          <q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
+        </q-td>
       </template>
     </q-table>
   </q-card-section>
 </template>
 
 <script>
+import CadastroEventoService from '../../services/CadastroEventoService/CadastroEventoService'
+
 export default {
   name: 'EventosAtivos',
   data () {
@@ -53,79 +56,30 @@ export default {
       filter: '',
       columns: [
         {
-          name: 'desc',
+          name: 'name',
           required: true,
           label: 'Nome do Evento',
-          align: 'left',
+          align: 'center',
           field: row => row.name,
           sortable: true
         },
-        { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-        { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-        { name: 'carbs', label: 'Carbs (g)', field: 'carbs' }
+        { name: 'start', align: 'center', label: 'Hora de início', field: 'start', sortable: true },
+        { name: 'finish', align: 'center', label: 'Hora de final', field: 'finish', sortable: true },
+        { name: 'date', align: 'center', label: 'Data de início', field: 'date' },
+        { name: 'local', align: 'center', label: 'Local do evento', field: 'local' },
+        { name: 'price', align: 'center', label: 'Preço do ingresso', field: 'price' },
+        { name: 'ageLimit', align: 'center', label: 'Idade mínima', field: 'ageLimit' },
+        { name: 'acoes', align: 'center', label: 'Ações', field: 'acoes' }
       ],
-      data: [
-        {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67
-        },
-        {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65
-        }
-      ]
+      data: []
+    }
+  },
+  mounted () {
+    this.dataGet()
+  },
+  methods: {
+    async dataGet () {
+      this.data = await CadastroEventoService.list()
     }
   }
 }

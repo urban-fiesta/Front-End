@@ -25,7 +25,6 @@
         :rules="[
         val => val !== null && val !== '' || 'Por favor insira a data do evento']"
       />
-      {{dadosEvento.date}}
       <q-input
         filled
         v-model="dadosEvento.local"
@@ -41,9 +40,7 @@
         lazy-rules
         :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
       />
-      {{dadosEvento.start}}
       <br>
-      {{formatedStart}}
       <q-input
         filled
         v-model="dadosEvento.finish"
@@ -52,7 +49,6 @@
         lazy-rules
         :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
       />
-      {{dadosEvento.finish}}
       <q-input
         filled
         v-model="dadosEvento.price"
@@ -124,6 +120,7 @@ export default {
 
       form: false,
       dadosEvento: {
+
         name: 'evento daora',
         date: null,
         local: 'Aqui',
@@ -137,8 +134,7 @@ export default {
 
       },
       accept: false,
-      data: {},
-      formatedStart: date.formatDate(Date.now(), 'YYYY-MM-DDTHH:mm:ss')
+      data: {}
     }
   },
 
@@ -181,14 +177,14 @@ export default {
     },
 
     onReset () {
-      this.dadosEvento.nome = null
-      this.dadosEvento.data = null
+      this.dadosEvento.name = null
+      this.dadosEvento.date = null
       this.dadosEvento.local = null
-      this.dadosEvento.horarioComeco = null
-      this.dadosEvento.horarioFim = null
-      this.dadosEvento.preco = null
-      this.dadosEvento.descricao = null
-      this.dadosEvento.censuraIdade = null
+      this.dadosEvento.start = null
+      this.dadosEvento.finish = null
+      this.dadosEvento.price = null
+      this.dadosEvento.description = null
+      this.dadosEvento.age_limit = null
     }
   }
 }
