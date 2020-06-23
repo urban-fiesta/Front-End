@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="row q-py-md justify-left">
+  <div class="row q-pt-md justify-left">
     <div class="text-h5" style="color: white;">
       Principais Ofertas
     </div>

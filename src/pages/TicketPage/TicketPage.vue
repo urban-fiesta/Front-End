@@ -10,14 +10,14 @@
         </div>
       </div>
         <q-list class="row justify-between">
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
-          <Menu class="col-md-6 col-xs-12" />
+          <Menu class="col-md-6 col-xs-12" price="15.00" />
+          <Menu class="col-md-6 col-xs-12" price="12.00" />
+          <Menu class="col-md-6 col-xs-12" price="25.00" />
+          <Menu class="col-md-6 col-xs-12" price="49.00" />
+          <Menu class="col-md-6 col-xs-12" price="72.00" />
+          <Menu class="col-md-6 col-xs-12" price="53.00" />
+          <Menu class="col-md-6 col-xs-12" price="75.00" />
+          <Menu class="col-md-6 col-xs-12" price="45.00" />
         </q-list>
     </div>
   </div>

@@ -14,11 +14,22 @@
               do Himalaia
             </div>
             <div class="row justify-around">
-              <q-btn class="col-md-5" color="white" text-color="black" label="Adicionar" />
-              <q-btn class="col-md-5" color="white" text-color="black" label="Remover" />
+              <q-btn
+                class="col-md-5"
+                color="white"
+                text-color="black"
+                label="Adicionar"
+                @click="AdicionarProduto()"/>
+              <q-btn
+                class="col-md-5"
+                color="white"
+                text-color="black"
+                label="Remover"
+                :disable="qnt == 0"
+                @click="RemoverProduto()"/>
             </div>
             <div class="row justify-around">
-              <q-chip dense class="col-md-5" label="R$ 15,00" />
+              <q-chip dense class="col-md-5">Preço: R$ {{ price }}</q-chip>
               <q-chip dense class="col-md-5">itens x {{ qnt }} </q-chip>
             </div>
           </div>
@@ -29,13 +40,40 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'MenuPage',
+  props: ['price'],
   data () {
     return {
-      qnt: 2
+      qnt: 0
     }
+  },
+  methods: {
+    AdicionarProduto () {
+      this.somaPreco(parseFloat(this.price))
+      this.adicionaItem()
+      if (this.qnt > 0) {
+        this.toggleHUD()
+        console.log(this.show_total)
+      }
+      this.qnt++
+    },
+    RemoverProduto () {
+      this.diminuirPreco(parseFloat(this.price))
+      if (this.qnt > 0) {
+        this.retiraItem()
+        this.qnt--
+      } else if (this.qnt === 0) {
+        this.toggleHUD()
+        console.log(this.show_total)
+      }
+    },
+    ...mapActions('example', ['adicionaItem', 'retiraItem', 'somaPreco', 'diminuirPreco', 'toggleHUD'])
+  },
+  computed: {
+    ...mapState('example', ['total_de_itens', 'total_a_pagar', 'show_total'])
   }
 }
 </script>

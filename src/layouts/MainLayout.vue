@@ -1,33 +1,34 @@
 <template>
   <q-layout view="hHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
+      <div class="row no-wrap shadow-1">
+        <q-toolbar class="col-md-9">
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            @click="leftDrawerOpen = !leftDrawerOpen"
+          />
+          <q-toolbar-title>
+            No 12 / {{ this.$route.name }}
+          </q-toolbar-title>
 
-        <q-toolbar-title>
-          No 12
-        </q-toolbar-title>
-
-        <q-breadcrumbs>
-          <q-breadcrumbs-el :label="this.$route.name" />
-        </q-breadcrumbs>
-
-        <q-btn
-          to="/login"
-          flat
-          round
-          dense
-          icon="account_circle"
-          class="q-mr-xs"
-        />
-      </q-toolbar>
+        </q-toolbar>
+        <q-toolbar v-show="total_de_itens !== 0" class="row col-md-3 bg-green">
+          <div class="col-md-5">
+            <div class="text-subtitle2">
+              Total de itens x {{ total_de_itens }}
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="text-subtitle2">
+              Total a pagar: R$ {{ total_a_pagar }}
+            </div>
+          </div>
+        </q-toolbar>
+      </div>
     </q-header>
 
     <q-drawer
@@ -57,7 +58,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import EssentialLink from 'components/EssentialLink'
 
 export default {
@@ -66,9 +67,17 @@ export default {
   components: {
     EssentialLink
   },
-
+  computed: {
+    ...mapState('example', ['total_de_itens', 'total_a_pagar', 'show_total']),
+    nomePaginaAtual () {
+      return this.$route.name
+    }
+  },
+  methods: {
+  },
   data () {
     return {
+      show: true,
       leftDrawerOpen: false,
       essentialLinks: [
         {
@@ -115,15 +124,9 @@ export default {
         }
       ]
     }
-  },
-  computed: {
-    ...mapState('example', ['location']),
-    nomePaginaAtual () {
-      return this.$route.name
-    }
-  },
-  methods: {
-    ...mapActions('example', ['mudarLocation'])
   }
 }
 </script>
+
+<style>
+</style>

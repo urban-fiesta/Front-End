@@ -12,16 +12,24 @@
       class="col-md-12 q-pb-md"
     >
 
-      <template v-slot:top-right>
-        <q-input rounded dense bg-color="grey-6" debounce="300" v-model="filter" label="Buscar">
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </q-input>
+      <template v-slot:header="props">
+        <q-tr :props="props">
+          <q-th auto-width />
+          <q-th
+            v-for="col in props.cols"
+            :key="col.name"
+            :props="props"
+          >
+            {{ col.label }}
+          </q-th>
+        </q-tr>
       </template>
 
       <template v-slot:body="props">
         <q-tr :props="props">
+          <q-td auto-width>
+            <q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
+          </q-td>
           <q-td
             v-for="col in props.cols"
             :key="col.name"
@@ -37,11 +45,6 @@
         </q-tr>
       </template>
 
-      <template v-slot:body-cell-acoes="props">
-        <q-td auto-width :props="props" key="acoes">
-          <q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
-        </q-td>
-      </template>
     </q-table>
   </q-card-section>
 </template>
@@ -68,8 +71,7 @@ export default {
         { name: 'date', align: 'center', label: 'Data de início', field: 'date' },
         { name: 'local', align: 'center', label: 'Local do evento', field: 'local' },
         { name: 'price', align: 'center', label: 'Preço do ingresso', field: 'price' },
-        { name: 'ageLimit', align: 'center', label: 'Idade mínima', field: 'ageLimit' },
-        { name: 'acoes', align: 'center', label: 'Ações', field: 'acoes' }
+        { name: 'ageLimit', align: 'center', label: 'Idade mínima', field: 'ageLimit' }
       ],
       data: []
     }
