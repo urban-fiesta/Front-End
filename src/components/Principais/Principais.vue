@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row justify-between">
-      <principais-ofertas class="col-md-5 col-xs-12" />
+      <principais-ofertas class="col-md-12 col-xs-12" />
       <ofertas class="col-md-5 col-xs-12" />
       <ofertas class="col-md-5 col-xs-12" />
     </div>
