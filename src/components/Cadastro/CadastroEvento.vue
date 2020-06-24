@@ -121,16 +121,16 @@ export default {
       form: false,
       dadosEvento: {
 
-        name: 'evento daora',
+        name: null,
         date: null,
-        local: 'Aqui',
+        local: null,
         start: null,
         finish: null,
-        price: 0,
-        description: 'evento daora mesmo',
-        age_limit: 12,
-        tag_list: 'opa',
-        event_photo: 'photo.png'
+        price: null,
+        description: null,
+        age_limit: null,
+        tag_list: null,
+        event_photo: null
 
       },
       accept: false,
