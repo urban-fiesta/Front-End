@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <q-card class="row bg-primary justify-center">
-      <eventos-ativos class="col-md-12"/>
-      <eventos-passados class="col-md-12"/>
+      <eventos-ativos class="col-md-12 col-xs-12" />
+      <eventos-passados class="col-md-12 col-xs-12" />
     </q-card>
   </q-page>
 </template>
@@ -25,5 +25,4 @@ export default {
 </script>
 
 <style>
-
 </style>
