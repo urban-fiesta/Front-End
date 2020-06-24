@@ -24,3 +24,5 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+## O projeto No12 surgiu como avaliação da disciplina de "Projeto Integrado II" do Centro Universitário do Pará
