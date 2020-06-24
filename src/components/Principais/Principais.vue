@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row q-py-md justify-center">
-      <div class="text-h5" style="color: white">
+      <div class="col-md-2 text-h5" style="color: white">
         Principais Ofertas
       </div>
     </div>
