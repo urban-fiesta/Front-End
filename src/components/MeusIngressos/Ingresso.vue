@@ -33,6 +33,7 @@
 
 <script>
 import MeuIngressosService from '../../services/CreditCardFormService/CreditCardFormService'
+import { date } from 'quasar'
 
 export default {
   name: 'Ingresso',
@@ -44,7 +45,9 @@ export default {
   methods: {
     async dataGet () {
       this.data = await MeuIngressosService.list()
-      console.log(this.data)
+      this.data.data.forEach(element => {
+        element.dateTime = date.formatDate(element.dateTime, 'DD/MM/YYYY')
+      })
     }
   },
   mounted () {
