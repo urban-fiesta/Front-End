@@ -113,6 +113,17 @@ export default {
       cartao: null,
       cvv: null
     }
+  },
+  methods: {
+    onSubmit () {
+      this.$q.notify({
+        message: 'Compra efetuada com sucesso!',
+        color: 'green-4',
+        icon: 'check',
+        position: 'center'
+      })
+    }
   }
 }
+
 </script>
