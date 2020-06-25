@@ -1,8 +1,13 @@
 <template>
   <q-page>
     <div class="row q-gutter-md justify-center">
-      <revisao-ingressos />
-      <credit-card-form />
+      <q-card
+        flat
+        class="bg-secondary justify-center"
+      >
+        <revisao-ingressos />
+        <credit-card-form />
+      </q-card>
     </div>
   </q-page>
 </template>

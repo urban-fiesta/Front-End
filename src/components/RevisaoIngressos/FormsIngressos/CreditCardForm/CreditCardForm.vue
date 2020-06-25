@@ -111,7 +111,7 @@ export default {
         2030],
 
       data: null,
-      ano: 0,
+      ano: null,
       nome: null,
       cartao: null,
       cvv: null,
