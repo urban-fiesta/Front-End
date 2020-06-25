@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div class="row q-gutter-md justify-center">
-      <revisao-ingressos class="col-md-11 col-xs-12"/>
-      <credit-card-form class="col-md-11 col-xs-12"/>
+      <revisao-ingressos />
+      <credit-card-form />
     </div>
   </q-page>
 </template>
@@ -21,5 +21,4 @@ export default {
 </script>
 
 <style>
-
 </style>
