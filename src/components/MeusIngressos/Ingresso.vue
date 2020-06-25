@@ -17,7 +17,7 @@
             {{ ingresso.price }}
           </div>
           <div class="text-h6">
-            {{ ingresso.date }}
+            {{ ingresso.dateTime }}
           </div>
         </q-expansion-item>
         <q-card-actions>
@@ -32,22 +32,12 @@
 </template>
 
 <script>
-import MeuIngressosService from '../../services/CadastroEventoService/CadastroEventoService'
+import MeuIngressosService from '../../services/CreditCardFormService/CreditCardFormService'
 
 export default {
   name: 'Ingresso',
   data () {
     return {
-      // ingressos: [
-      //   // Teste do 'for'
-      //   { id: '1' },
-      //   { id: '2' },
-      //   { id: '3' },
-      //   { id: '4' },
-      //   { id: '5' },
-      //   { id: '6' },
-      //   { id: '7' }
-      // ],
       data: []
     }
   },

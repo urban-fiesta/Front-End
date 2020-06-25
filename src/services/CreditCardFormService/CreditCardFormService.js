@@ -2,7 +2,7 @@ import Base from '../base'
 
 class CreditCardFormService extends Base {
   constructor () {
-    super('/Ticket')
+    super('/Tickets')
   }
 }
 

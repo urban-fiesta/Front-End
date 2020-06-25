@@ -75,11 +75,11 @@
           </div>
           <div>
             <q-btn
-              v-model="confirma"
               type="submit"
               label="Pagar"
               color="primary"
               to="/meus-ingressos"
+              @click="dataSend()"
             />
           </div>
         </q-form>
@@ -90,6 +90,7 @@
 
 <script>
 import CreditCardFormService from '../../../../services/CreditCardFormService/CreditCardFormService'
+import { date } from 'quasar'
 
 export default {
   name: 'CreditCardForm',
@@ -110,10 +111,15 @@ export default {
         2030],
 
       data: null,
-      ano: null,
+      ano: 0,
       nome: null,
       cartao: null,
-      cvv: null
+      cvv: null,
+      dadosMocados: {
+        name: 'Festival 2 anos woodstock',
+        price: 148.5,
+        dateTime: '25/10/2021'
+      }
     }
   },
   methods: {
@@ -124,14 +130,14 @@ export default {
         icon: 'check',
         position: 'center'
       })
-    }
-  },
-  methods: {
-    async dataGet () {
-      this.data = await CreditCardFormService.create()
-      console.log(this.data)
     },
-    mounted () {
+    async dataSend () {
+      const _dadosMocados = {
+        ...this.dadosMocados,
+        dateTime: date.formatDate(this.dadosMocados.dateTime, 'YYYY-MM-DD')
+      }
+      this.data = await CreditCardFormService.create(_dadosMocados)
+      console.log(_dadosMocados)
     }
   }
 }
