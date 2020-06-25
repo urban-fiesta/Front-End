@@ -11,11 +11,15 @@
     animated
   >
     <q-carousel-slide :name="1">
-      <q-card class="row" flat>
-        <q-card-section class="col-md-5 col-xs-12" horizontal>
-          <q-img
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          />
+      <q-card
+        class="row"
+        flat
+      >
+        <q-card-section
+          class="col-md-5 col-xs-12"
+          horizontal
+        >
+          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" />
         </q-card-section>
         <q-card-section class="col-md-7 col-xs-12 q-gutter-sm">
           <div class="text-h3">
@@ -34,23 +38,44 @@
             <p><u>Horário</u>: 22:00h ás 4:00h</p>
           </div>
           <div class="q-pl-sm q-py-md row">
-            <q-btn class="col-md-5 col-xs-12" color="white" text-color="black" label="Ver Evento" />
+            <q-btn
+              class="col-md-5 col-xs-12"
+              color="primary"
+              label="Ver Evento"
+              to="/evento"
+            />
           </div>
           <div>
-            <q-chip icon="event" label="Add to calendar" />
-            <q-chip icon="bookmark" label="Bookmark" />
-            <q-chip icon="alarm" label="Set alarm"/>
-            <q-chip icon="directions" label="Get directions" />
+            <q-chip
+              icon="event"
+              label="Add to calendar"
+            />
+            <q-chip
+              icon="bookmark"
+              label="Bookmark"
+            />
+            <q-chip
+              icon="alarm"
+              label="Set alarm"
+            />
+            <q-chip
+              icon="directions"
+              label="Get directions"
+            />
           </div>
         </q-card-section>
       </q-card>
     </q-carousel-slide>
     <q-carousel-slide :name="2">
-      <q-card class="row" flat>
-        <q-card-section class="col-md-5 col-xs-12" horizontal>
-          <q-img
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          />
+      <q-card
+        class="row"
+        flat
+      >
+        <q-card-section
+          class="col-md-5 col-xs-12"
+          horizontal
+        >
+          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" />
         </q-card-section>
         <q-card-section class="col-md-7 col-xs-12 q-gutter-sm">
           <div class="text-h3">
@@ -69,13 +94,30 @@
             <p><u>Horário</u>: 22:00h ás 4:00h</p>
           </div>
           <div class="q-pl-sm q-py-md row">
-            <q-btn class="col-md-5 col-xs-12" color="white" text-color="black" label="Ver Evento" />
+            <q-btn
+              class="col-md-5 col-xs-12"
+              color="white"
+              text-color="black"
+              label="Ver Evento"
+            />
           </div>
           <div>
-            <q-chip icon="event" label="Add to calendar" />
-            <q-chip icon="bookmark" label="Bookmark" />
-            <q-chip icon="alarm" label="Set alarm"/>
-            <q-chip icon="directions" label="Get directions" />
+            <q-chip
+              icon="event"
+              label="Add to calendar"
+            />
+            <q-chip
+              icon="bookmark"
+              label="Bookmark"
+            />
+            <q-chip
+              icon="alarm"
+              label="Set alarm"
+            />
+            <q-chip
+              icon="directions"
+              label="Get directions"
+            />
           </div>
         </q-card-section>
       </q-card>
@@ -96,5 +138,4 @@ export default {
 </script>
 
 <style>
-
 </style>
