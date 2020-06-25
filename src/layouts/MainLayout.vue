@@ -1,34 +1,42 @@
 <template>
   <q-layout view="hHh Lpr lFf">
     <q-header elevated>
-      <div class="row no-wrap shadow-1">
-        <q-toolbar class="col-md-9">
-          <q-btn
-            flat
-            dense
-            round
-            icon="menu"
-            aria-label="Menu"
-            @click="leftDrawerOpen = !leftDrawerOpen"
-          />
-          <q-toolbar-title>
-            No 12 / {{ this.$route.name }}
-          </q-toolbar-title>
-
-        </q-toolbar>
-        <q-toolbar v-show="total_de_itens !== 0" class="row col-md-3 bg-green">
-          <div class="col-md-5">
-            <div class="text-subtitle2">
-              Total de itens x {{ total_de_itens }}
-            </div>
+      <!-- <div class="row no-wrap shadow-1"> -->
+      <q-toolbar class="col-md-9">
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="leftDrawerOpen = !leftDrawerOpen"
+        />
+        <q-toolbar-title>
+          No 12 / {{ this.$route.name }}
+        </q-toolbar-title>
+        <q-btn
+          icon="account_circle"
+          flat
+          label="Entrar"
+          to="/login"
+        />
+      </q-toolbar>
+      <q-toolbar
+        v-show="total_de_itens !== 0"
+        class="row col-md-3 bg-green"
+      >
+        <div class="col-md-5">
+          <div class="text-subtitle2">
+            Total de itens x {{ total_de_itens }}
           </div>
-          <div class="col-md-7">
-            <div class="text-subtitle2">
-              Total a pagar: R$ {{ total_a_pagar }}
-            </div>
+        </div>
+        <div class="col-md-7">
+          <div class="text-subtitle2">
+            Total a pagar: R$ {{ total_a_pagar }}
           </div>
-        </q-toolbar>
-      </div>
+        </div>
+      </q-toolbar>
+      <!-- </div> -->
     </q-header>
 
     <q-drawer

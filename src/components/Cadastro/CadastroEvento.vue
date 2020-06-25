@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="justify-center">
     <q-card-section>
       <div class="text-h6">Cadastro</div>
     </q-card-section>
@@ -12,14 +12,14 @@
       <q-input
         filled
         v-model="dadosEvento.name"
-        hint="Insira o nome do evento*"
+        hint="Insira o nome do evento *"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Por favor insira nome do evendo']"
+        :rules="[ val => val && val.length > 0 || 'Por favor insira nome do evento']"
       />
       <q-input
         filled
         v-model="dadosEvento.date"
-        hint="Insira a data do evento"
+        hint="Insira a data do evento *"
         type="date"
         lazy-rules
         :rules="[
@@ -28,7 +28,7 @@
       <q-input
         filled
         v-model="dadosEvento.local"
-        hint="Insira as informações do local*"
+        hint="Insira as informações do local *"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Por favor insira as informações do local']"
       />
@@ -36,24 +36,24 @@
         filled
         v-model="dadosEvento.start"
         type="time"
-        hint="Insira o horário inicial do evento*"
+        hint="Insira o horário inicial do evento *"
         lazy-rules
-        :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
+        :rules="[ val => val && val !== null || 'Por favor insira o horário de início do evento']"
       />
       <br>
       <q-input
         filled
         v-model="dadosEvento.finish"
         type="time"
-        hint="Insira o horário final do evento*"
+        hint="Insira o horário final do evento *"
         lazy-rules
-        :rules="[ val => val && val !== null || 'Por favor insira o horário do evento']"
+        :rules="[ val => val && val !== null || 'Por favor insira o horário de término do evento']"
       />
       <q-input
         filled
         v-model="dadosEvento.price"
         prefix="R$"
-        hint="Insira o preço do ingresso"
+        hint="Insira o preço do ingresso *"
         lazy-rules
         :rules="[
         val => val !== null || 'Por favor insira o preço']"
@@ -62,7 +62,7 @@
         filled
         v-model="dadosEvento.age_limit"
         type="number"
-        hint="Insira o o limite de idade"
+        hint="Insira o o limite de idade *"
         lazy-rules
         :rules="[
         val => val !== null || 'Por favor uma idade válida']"
@@ -71,7 +71,7 @@
         filled
         v-model="dadosEvento.description"
         type="textarea"
-        hint="Insira uma descrição para o evento*"
+        hint="Insira uma descrição para o evento *"
         lazy-rules
         :rules="[
         val => val !== null || 'Por favor insira alguma descrição'
@@ -79,7 +79,7 @@
       />
       <q-uploader
         url="http://localhost:4444/upload"
-        label="Envie uma foto do evento"
+        label="Envie uma foto do evento *"
         color="primary"
         square
         flat
