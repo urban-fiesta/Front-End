@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import CreditCardFormService from '../../../../services/CreditCardFormService/CreditCardFormService'
+
 export default {
   name: 'CreditCardForm',
   data () {
@@ -39,6 +41,14 @@ export default {
       year: [2020, 2030],
       model: '',
       text: ''
+    }
+  },
+  methods: {
+    async dataGet () {
+      this.data = await CreditCardFormService.create()
+      console.log(this.data)
+    },
+    mounted () {
     }
   }
 }
