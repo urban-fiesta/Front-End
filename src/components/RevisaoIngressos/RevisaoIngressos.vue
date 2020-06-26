@@ -27,7 +27,7 @@
             <u>Evento</u>: Festival 2 anos Woodstock
           </div>
           <div class="text-h6">
-            <u>Data</u>: 25/10/2021
+            <u>Data</u>: 26/06/2020
           </div>
           <div class="text-h6">
             <u>Horário</u>: 22:00h ás 4:00h

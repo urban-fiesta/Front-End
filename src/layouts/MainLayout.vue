@@ -14,12 +14,14 @@
         <q-toolbar-title>
           No 12 / {{ this.$route.name }}
         </q-toolbar-title>
-        <q-btn
+        <!-- <q-btn
           icon="account_circle"
           flat
           label="Entrar"
           to="/login"
-        />
+          :class="hidden"
+          @click="esconderLogin()"
+        /> -->
       </q-toolbar>
       <q-toolbar
         v-show="total_de_itens !== 0"
@@ -41,21 +43,36 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-1"
+        bordered
+        padding
+        class="rounded-borders text-primary"
     >
       <q-list>
         <q-item-label
           header
           class="text-grey-8"
         >
-          Essential Links
+          Links essenciais
         </q-item-label>
-        <EssentialLink
+        <!-- <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
-        />
+        /> -->
+        <q-item
+          clickable
+          v-ripple
+          :to="link.to"
+          v-for="link in essentialLinks"
+          :key="link.title"
+        >
+        <q-item-section thumbnail>
+          <q-icon color="primary" :name="link.icon" class="q-pl-sm"/>
+        </q-item-section>
+        <q-item-section>
+          {{ link.title }}
+        </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -67,13 +84,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import EssentialLink from 'components/EssentialLink'
+// import EssentialLink from 'components/EssentialLink'
 
 export default {
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    // EssentialLink
   },
   computed: {
     ...mapState('example', ['total_de_itens', 'total_a_pagar', 'show_total']),
@@ -89,46 +106,24 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
+          title: 'Login',
+          icon: 'person',
+          to: '/login'
         },
         {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
+          title: 'Cadastrar evento',
+          icon: 'insert_invitation',
+          to: '/cadastro'
         },
         {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
+          title: 'Eventos Cadastrados',
+          icon: 'event_available',
+          to: '/dashboard'
         },
         {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
-        },
-        {
-          title: 'Quasar Awesome',
-          caption: 'Community Quasar projects',
-          icon: 'favorite',
-          link: 'https://awesome.quasar.dev'
+          title: 'Meus Ingressos',
+          icon: 'confirmation_number',
+          to: '/meus-ingressos'
         }
       ]
     }

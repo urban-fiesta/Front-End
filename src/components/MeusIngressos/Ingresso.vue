@@ -17,7 +17,10 @@
             {{ ingresso.price }}
           </div>
           <div class="text-h6">
-            {{ ingresso.dateTime }}
+            {{ ingresso.date }}
+          </div>
+          <div class="text-h6">
+            {{ ingresso.time }}
           </div>
         </q-expansion-item>
         <q-card-actions>
@@ -46,7 +49,8 @@ export default {
     async dataGet () {
       this.data = await MeuIngressosService.list()
       this.data.data.forEach(element => {
-        element.dateTime = date.formatDate(element.dateTime, 'DD/MM/YYYY')
+        element.date = date.formatDate(element.date, 'DD/MM/YYYY')
+        element.time = date.formatDate(element.time, 'HH:mm')
       })
     }
   },

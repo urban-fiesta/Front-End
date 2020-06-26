@@ -78,7 +78,6 @@
               type="submit"
               label="Pagar"
               color="primary"
-              to="/meus-ingressos"
               @click="dataSend()"
             />
           </div>
@@ -118,7 +117,8 @@ export default {
       dadosMocados: {
         name: 'Festival 2 anos woodstock',
         price: 148.5,
-        dateTime: '25/10/2021'
+        date: Date.now(),
+        time: Date.now()
       }
     }
   },
@@ -134,7 +134,8 @@ export default {
     async dataSend () {
       const _dadosMocados = {
         ...this.dadosMocados,
-        dateTime: date.formatDate(this.dadosMocados.dateTime, 'YYYY-MM-DD')
+        time: date.formatDate(this.dadosMocados.time, 'YYYY-MM-DDTHH:mm:ss.SSSZ'),
+        date: date.formatDate(this.dadosMocados.date, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
       }
       this.data = await CreditCardFormService.create(_dadosMocados)
       console.log(_dadosMocados)

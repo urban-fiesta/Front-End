@@ -2,7 +2,6 @@
   <q-page>
     <q-card class="row bg-primary justify-center">
       <eventos-ativos class="col-md-12 col-xs-12" />
-      <!-- <eventos-passados class="col-md-12 col-xs-12" /> -->
       <q-btn
         label="Criar evento"
         to="/cadastro"
